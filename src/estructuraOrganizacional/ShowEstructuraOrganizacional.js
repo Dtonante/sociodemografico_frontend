@@ -18,7 +18,7 @@ const CompShowEstructuraOrganizacional = () => {
     }
 
     //Procedimiento para eliminar una eps
-    const deleteEps = async (id_areaPk) => {
+    const deleteEstructuraOrganizacional = async (id_areaPk) => {
         axios.delete(`${URI_ESTRUCTURA_ORGANIZACIONAL}${id_areaPk}`)
 
     }

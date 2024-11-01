@@ -2,24 +2,24 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const URI_FONDO_PENSION = 'http://localhost:3001/fondoPension'
+const URI_TIEMPO_LIBRE = 'http://localhost:3001/tiempoLibre'
 
-const CompShowFondoDePension = () => {
-    const [fondoDePension, setFondoDePension] = useState([])
+const CompShowTiempoLibre = () => {
+    const [tiempoLibre, setTiempoLibre] = useState([])
     useEffect(() => {
-        getFondoDePension()
+        getTiempoLibre()
     }, [])
 
     //Procedimiento para mostrar todas las eps
-    const getFondoDePension = async () => {
-        const res = await axios.get(URI_FONDO_PENSION)
-        setFondoDePension(res.data)
+    const getTiempoLibre = async () => {
+        const res = await axios.get(URI_TIEMPO_LIBRE)
+        setTiempoLibre(res.data)
 
     }
 
     //Procedimiento para eliminar una eps
-    const deleteFondoDePension = async (id_fondoPensionPK) => {
-        axios.delete(`${URI_FONDO_PENSION}${id_fondoPensionPK}`)
+    const deleteTiempoLibre = async (id_tiempoLibrePK) => {
+        axios.delete(`${URI_TIEMPO_LIBRE}${id_tiempoLibrePK}`)
 
     }
 
@@ -30,18 +30,18 @@ const CompShowFondoDePension = () => {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th scope="col">id_fondoPensionPK</th>
+                                <th scope="col">id_tiempoLibrePK</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {fondoDePension.map((fondoDePension) => (
-                                <tr key= { fondoDePension.id_fondoPensionPK }>
-                                    <td> { fondoDePension.id_fondoPensionPK } </td>
-                                    <td> { fondoDePension.var_nombreFondoPension } </td>
+                            {tiempoLibre.map((tiempoLibre) => (
+                                <tr key= { tiempoLibre.id_tiempoLibrePK }>
+                                    <td> { tiempoLibre.id_tiempoLibrePK } </td>
+                                    <td> { tiempoLibre.var_nombreOcuapacionTiempoLibre } </td>
                                     <td>
-                                        {/* <Link to={`/editar/${eps.id_fondoPensionPK}`} className="btn btn-info">Editar</Link> */}
+                                        {/* <Link to={`/editar/${eps.id_epsPK}`} className="btn btn-info">Editar</Link> */}
                                         <button className="btn btn-danger"><i class="fa-regular fa-trash-can"></i> </button>
                                     </td>
                                 </tr>
@@ -60,4 +60,4 @@ const CompShowFondoDePension = () => {
 
 }
 
-export default CompShowFondoDePension;
+export default CompShowTiempoLibre;

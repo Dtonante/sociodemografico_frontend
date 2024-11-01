@@ -2,24 +2,24 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const URI_FONDO_PENSION = 'http://localhost:3001/fondoPension'
+const URI_TIPO_DOCUMENTO = 'http://localhost:3001/tipodocumentos'
 
-const CompShowFondoDePension = () => {
-    const [fondoDePension, setFondoDePension] = useState([])
+const CompShowTipoDocumento = () => {
+    const [tipoDocumento, setTipoDocumento] = useState([])
     useEffect(() => {
-        getFondoDePension()
+        getTipoDocumento()
     }, [])
 
     //Procedimiento para mostrar todas las eps
-    const getFondoDePension = async () => {
-        const res = await axios.get(URI_FONDO_PENSION)
-        setFondoDePension(res.data)
+    const getTipoDocumento = async () => {
+        const res = await axios.get(URI_TIPO_DOCUMENTO)
+        setTipoDocumento(res.data)
 
     }
 
     //Procedimiento para eliminar una eps
-    const deleteFondoDePension = async (id_fondoPensionPK) => {
-        axios.delete(`${URI_FONDO_PENSION}${id_fondoPensionPK}`)
+    const deleteTipoDocumento = async (id_tipoDocumentoPK) => {
+        axios.delete(`${URI_TIPO_DOCUMENTO}${id_tipoDocumentoPK}`)
 
     }
 
@@ -30,18 +30,18 @@ const CompShowFondoDePension = () => {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th scope="col">id_fondoPensionPK</th>
+                                <th scope="col">id_tipoDocumentoPK</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {fondoDePension.map((fondoDePension) => (
-                                <tr key= { fondoDePension.id_fondoPensionPK }>
-                                    <td> { fondoDePension.id_fondoPensionPK } </td>
-                                    <td> { fondoDePension.var_nombreFondoPension } </td>
+                            {tipoDocumento.map((tipoDocumento) => (
+                                <tr key= { tipoDocumento.id_tipoDocumentoPK }>
+                                    <td> { tipoDocumento.id_tipoDocumentoPK } </td>
+                                    <td> { tipoDocumento.var_nombreDocumento } </td>
                                     <td>
-                                        {/* <Link to={`/editar/${eps.id_fondoPensionPK}`} className="btn btn-info">Editar</Link> */}
+                                        {/* <Link to={`/editar/${eps.id_epsPK}`} className="btn btn-info">Editar</Link> */}
                                         <button className="btn btn-danger"><i class="fa-regular fa-trash-can"></i> </button>
                                     </td>
                                 </tr>
@@ -60,4 +60,4 @@ const CompShowFondoDePension = () => {
 
 }
 
-export default CompShowFondoDePension;
+export default CompShowTipoDocumento;

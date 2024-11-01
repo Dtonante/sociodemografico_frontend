@@ -18,7 +18,7 @@ const CompShowServiciosQueNoCuentan = () => {
     }
 
     //Procedimiento para eliminar una eps
-    const deleteEps = async (id_servicioQueNoCuentaPK) => {
+    const deleteServicioQueNoCuentan = async (id_servicioQueNoCuentaPK) => {
         axios.delete(`${URI_SERVICIO_QUE_NO_CUENTAN}${id_servicioQueNoCuentaPK}`)
 
     }
@@ -30,7 +30,7 @@ const CompShowServiciosQueNoCuentan = () => {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th scope="col">id_epsPK</th>
+                                <th scope="col">id_servicioQueNoCuentaPK</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Acciones</th>
                             </tr>

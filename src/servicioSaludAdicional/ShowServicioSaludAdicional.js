@@ -18,7 +18,7 @@ const CompShowServicioDeSaludAdicional = () => {
     }
 
     //Procedimiento para eliminar una eps
-    const deleteEps = async (id_servicioDeSaludAdicionalPK) => {
+    const deleteServicioSaludAdicional = async (id_servicioDeSaludAdicionalPK) => {
         axios.delete(`${URI_SERVICIO_SALUD_ADICIONAL}${id_servicioDeSaludAdicionalPK}`)
 
     }
