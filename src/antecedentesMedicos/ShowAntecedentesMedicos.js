@@ -27,6 +27,7 @@ const CompShowAntecedentesMedicos = () => {
         <div className="container">
             <div className="row">
                 <div className="col">
+                <Link to="/crear" className="btn btn-primary mt-2 mb-2"><i class="fa-solid fa-plus"></i></Link>
                     <table className="table">
                         <thead>
                             <tr>
@@ -41,8 +42,8 @@ const CompShowAntecedentesMedicos = () => {
                                     <td> { antecedenteMedico.id_antecedenteMedicoPK } </td>
                                     <td> { antecedenteMedico.var_nombreAntecedenteMedico } </td>
                                     <td>
-                                        {/* <Link to={`/editar/${eps.id_epsPK}`} className="btn btn-info">Editar</Link> */}
-                                        <button className="btn btn-danger"><i class="fa-regular fa-trash-can"></i> </button>
+                                        <Link to={`/editar/${antecedenteMedico.id_antecedenteMedicoPK}`} className="btn btn-info"><i class="fa-regular fa-pen-to-square"></i></Link>
+                                        <button onClick={()=>deleteAntecedenteMedico(antecedenteMedico.id_antecedenteMedicoPK)} className="btn btn-danger"><i class="fa-regular fa-trash-can"></i> </button>
                                     </td>
                                 </tr>
 

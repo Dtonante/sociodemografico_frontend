@@ -2,9 +2,9 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const URI_EPS = 'http://localhost:3001/eps'
+const URI_ANTECEDENTE_MEDICO = 'http://localhost:3001/antecedentesMedicos'
 
-const CompCrearEps = () => {
+const CompCrearAntecedentesMedicos = () => {
     const [var_nombreEps, setVar_nombreEps] = useState('')
     const navigate = useNavigate()
 
@@ -31,4 +31,4 @@ const CompCrearEps = () => {
     )
 }
 
-export default CompCrearEps
+export default CompCrearAntecedentesMedicos
